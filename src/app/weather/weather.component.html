@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="flex-column">
+    <form [formGroup]="weatherForm" (submit)="onSubmit()" class="flex-column">
+      <div>
+        <input
+          type="text"
+          id="weatherLocation"
+          placeholder="Please input a Location"
+          formControlName="location"
+        />
+      </div>
+      <div>
+        <button type="submit">Search for the weather</button>
+      </div>
+    </form>
+  </div>
+
+  <ng-container *ngIf="weatherData">
+    <div class="weatherdetails">
+      <span>Temp {{ weatherData?.main.temp }}°C</span>
+      <span>min temp {{ weatherData?.main.temp_min }}°C</span>
+      <span>max temp {{ weatherData?.main.temp_max }}°C</span>
+    </div>
+  </ng-container>
+</div>
