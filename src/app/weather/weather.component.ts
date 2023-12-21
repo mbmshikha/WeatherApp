@@ -16,6 +16,7 @@ export class WeatherComponent implements OnInit {
   weatherForm: FormGroup;
   enteredLocation: string = '';
   weatherData: any;
+  formSubmitted: boolean = false;
 
   constructor(private apiService: WeatherApiService, private fb: FormBuilder) {
     // this.weatherForm = new FormGroup({
@@ -39,11 +40,17 @@ export class WeatherComponent implements OnInit {
   }
 
   onSubmit() {
-    this.enteredLocation = this.weatherForm.get('location')?.value;
-    console.log('Entered Location', this.enteredLocation);
-    this.apiService.getWeatherData(this.enteredLocation).subscribe((resp) => {
-      this.weatherData = resp;
-      console.log(this.weatherData);
-    });
+    if (this.weatherForm.valid) {
+      this.enteredLocation = this.weatherForm.get('location')?.value;
+      this.weatherForm.get('location')?.patchValue('');
+      console.log('Entered Location', this.enteredLocation);
+      this.apiService.getWeatherData(this.enteredLocation).subscribe((resp) => {
+        this.weatherData = resp;
+        console.log(this.weatherData);
+      });
+    } else {
+      this.formSubmitted = true;
+      this.weatherData = '';
+    }
   }
 }

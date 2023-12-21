@@ -1,13 +1,14 @@
 .main {
   display: flex;
   flex-direction: row;
+  border: 2px solid blue;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  max-height: 50vh;
+  justify-content: space-around;
+  min-height: 50vh;
 }
 
 .weatherdetails {
@@ -15,7 +16,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 50vh;
   box-shadow: 1px 1px 6px rgb(105, 35, 35);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: bold;
+  padding: 5px;
+}
+
+form span {
+  color: red;
+  font-size: small;
+  margin-top: 0.25rem;
 }

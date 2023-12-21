@@ -1,22 +1,24 @@
 <div class="main">
-  <div class="flex-column">
-    <form [formGroup]="weatherForm" (submit)="onSubmit()" class="flex-column">
-      <div>
-        <input
-          type="text"
-          id="weatherLocation"
-          placeholder="Please input a Location"
-          formControlName="location"
-        />
-      </div>
-      <div>
-        <button type="submit">Search for the weather</button>
-      </div>
-    </form>
-  </div>
-
+  <form [formGroup]="weatherForm" (submit)="onSubmit()" class="flex-column">
+    <input
+      type="text"
+      id="weatherLocation"
+      placeholder="Please input a Location"
+      formControlName="location"
+    />
+    <span
+      *ngIf="
+        weatherForm.controls['location'].hasError('required') && formSubmitted
+      "
+      class=""
+    >
+      *Location is required
+    </span>
+    <button type="submit">Search for the weather</button>
+  </form>
   <ng-container *ngIf="weatherData">
     <div class="weatherdetails">
+      <b>{{ this.enteredLocation }}</b>
       <span>Temp {{ weatherData?.main.temp }}°C</span>
       <span>min temp {{ weatherData?.main.temp_min }}°C</span>
       <span>max temp {{ weatherData?.main.temp_max }}°C</span>
