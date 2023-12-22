@@ -1,0 +1,27 @@
+<form novalidate [formGroup]="loginForm">
+  <div class="form-controls">
+    <label>Username</label>
+    <input
+      type="text"
+      formControlName="username"
+      placeholder="Enter user name"
+    />
+  </div>
+  <div class="form-controls">
+    <label>Password</label>
+    <input
+      type="text"
+      formControlName="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <div class="form-controls">
+    <label>Confirm password</label>
+    <input
+      type="text"
+      formControlName="confirmpassword"
+      placeholder="Confirm password"
+    />
+  </div>
+  <button type="submit">Login</button>
+</form>

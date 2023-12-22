@@ -1,0 +1,9 @@
+.form-controls {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
+  justify-content: space-between;
+}
+.form-controls input {
+  padding: 2px;
+}

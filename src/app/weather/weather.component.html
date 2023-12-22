@@ -1,5 +1,10 @@
 <div class="main">
-  <form [formGroup]="weatherForm" (submit)="onSubmit()" class="flex-column">
+  <form
+    novalidate
+    [formGroup]="weatherForm"
+    (submit)="onSubmit()"
+    class="flex-column"
+  >
     <input
       type="text"
       id="weatherLocation"
@@ -8,7 +13,7 @@
     />
     <span
       *ngIf="
-        weatherForm.controls['location'].hasError('required') && formSubmitted
+        weatherForm.controls['location'].hasError('required') && isFormInvalid
       "
       class=""
     >
