@@ -9,6 +9,7 @@ import { WeatherApiService } from './services/weatherapi.service';
 import { WeatherComponent } from './weather/weather.component';
 import { LoginComponent } from './login/login.component';
 
+
 @NgModule({
   declarations: [AppComponent, WeatherComponent, LoginComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule,HttpClientModule],

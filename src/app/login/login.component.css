@@ -1,9 +1,35 @@
-.form-controls {
+.flex-row {
   display: flex;
   flex-direction: row;
-  border: 2px solid red;
   justify-content: space-between;
 }
-.form-controls input {
-  padding: 2px;
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+label {
+  padding: 5px;
+}
+.flex-row input {
+  padding: 5px;
+}
+.form-error {
+  color: red;
+  font-size: 10px;
+  padding: 5px;
+}
+input[type="submit"] {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+}
+input[type="text"] {
+  background-color: #f2f3f4;
+  border-radius: 2px;
 }

@@ -1,8 +1,6 @@
 .container {
   background-color: lightblue;
 
-  border: 5px solid green;
-
   display: flex;
 
   align-items: center;
