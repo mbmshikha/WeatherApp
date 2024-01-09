@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -42,13 +43,38 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginForm.get('password')?.valueChanges.subscribe((selectedUSer) => {
-      console.log('username changed');
-      console.log(selectedUSer);
-    });
+    console.log(
+      this.loginForm.get('password')?.value,
+      this.loginForm.get('confirmpassword')?.value
+    );
+    this.loginForm
+      .get('confirmpassword')
+      ?.valueChanges.subscribe((password) => {
+        console.log('confirmpassword changed');
+        console.log(password);
+        if (
+          this.loginForm.get('password')?.value !==
+          this.loginForm.get('confirmpassword')?.value
+        ) {
+          this.loginForm
+            .get('confirmpassword')
+            ?.setErrors({ passwordNotMatch: true });
+          this.loginForm.setErrors({ invalidForm: true });
+        } else {
+          this.loginForm.setErrors({ invalidForm: false });
+        }
+      });
   }
 
-  customValidator: ValidatorFn = (): ValidationErrors | null => {
+  customValidator: ValidatorFn = (
+    control: AbstractControl
+  ): ValidationErrors | null => {
+    if (
+      control.get('password')?.value !== control.get('confirmpassword')?.value
+    ) {
+      control.get('confirmpassword')?.setErrors({ passwordNotMatch: true });
+      return { passwordNotMatch: true };
+    }
     return null;
   };
 

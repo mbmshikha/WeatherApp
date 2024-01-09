@@ -43,7 +43,19 @@
         formControlName="confirmpassword"
         placeholder="Confirm password"
       />
+      <span
+        *ngIf="
+          loginForm.controls['confirmpassword'].hasError('passwordNotMatch')
+        "
+        class="form-error"
+        >*Password did not match</span
+      >
     </div>
   </div>
-  <input type="submit" value="Login" />
+  <input
+    type="submit"
+    value="Login"
+    [disabled]="!loginForm.hasError('invalidForm')"
+  />
+  {{ loginForm.hasError("invalidForm") }}
 </form>
