@@ -1,0 +1,16 @@
+{
+  "signupUsersList": [
+    {
+      "email": "shikha",
+      "password": "161288"
+    },
+    {
+      "email": "gaurav",
+      "password": "070688"
+    },
+    {
+      "email": "prabhat",
+      "password": "230691"
+    }
+  ]
+}
